@@ -1,14 +1,14 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 5.7
 import PackageDescription
 
 let inputFiles: [Resource] = (1...25)
-    .map { "Day \($0)/Day\($0).input" }
+    .map { "Day \(String(format: "%02d", $0))/Day\($0).input" }
     .map {  .process($0) }
 
 let package = Package(
     name: "AdventOfCode",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v16),
         .macOS(.v12)
     ],
     dependencies: [
