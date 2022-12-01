@@ -27,10 +27,12 @@ extension Day1 {
 //        return self.data.sorted().dropFirst(data.count - 3).reduce(0, +)
 
         // Optimised way, using a variant of quicksort to find the kth-to-last pivot.
-        // This avoids sorting the entire array, but quickly tries to find the kth largest
-        // with unordered values with lower values with lower indexes, unordered greater
-        // values with higher indexes. Will give O(nlogn) for some cases, but as
-        // an average will give O(n)
+        // This avoids sorting the entire array, but quickly tries to find the kth largest.
+        // Values before the pivot will be unordered but all less than the pivot, and vice versa
+        // for the values after the pivot. For example if we want the top 4,
+        // we could get a valid output of: [4, 3, 2, 6, 10, 9, 7]
+        // Therefore the last 4 (6, 10, 9, 7) are the greatest 4 numbers in the array, with "6" being the pivot.
+        // This will give O(nlogn) for some cases, but as an average will give O(n).
         var mutableData = self.caloriesData
         var high = caloriesData.count - 1
         var low = 0
