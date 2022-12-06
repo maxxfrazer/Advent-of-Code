@@ -10,7 +10,7 @@ struct Day5: Solution {
     
     init(input: String) {
         // Separate the stack layout and the moves
-        var inpSep = input.components(separatedBy: "\n\n")
+        let inpSep = input.components(separatedBy: "\n\n")
 
         // Find all the moves that need to be made
         self.moves = inpSep[1].trimmingCharacters(in: .whitespacesAndNewlines)
@@ -86,15 +86,15 @@ struct Stack<T> {
     var isEmpty: Bool { items.isEmpty }
 
     func peek() -> T {
-        guard let topElement = items.first else { fatalError("This stack is empty.") }
+        guard let topElement = items.last else { fatalError("This stack is empty.") }
         return topElement
     }
 
     mutating func pop() -> T {
-        return items.removeFirst()
+        return items.removeLast()
     }
 
     mutating func push(_ element: T) {
-        items.insert(element, at: 0)
+        items.append(element)
     }
 }
