@@ -84,12 +84,13 @@ struct Stack<T> {
     private var items: [T] = []
 
     var isEmpty: Bool { items.isEmpty }
-
+    var size: Int { self.items.count }
     func peek() -> T {
         guard let topElement = items.last else { fatalError("This stack is empty.") }
         return topElement
     }
 
+    @discardableResult
     mutating func pop() -> T {
         return items.removeLast()
     }
