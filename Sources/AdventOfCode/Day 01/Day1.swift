@@ -38,12 +38,12 @@ extension Day1 {
         // as we want the largest 3 values.
         let targetPivot = 3
 
-        findKSort(nums: &mutableData, start: 0, end: caloriesData.count - 1, k: targetPivot)
+        Day1.findKSort(nums: &mutableData, start: 0, end: caloriesData.count - 1, k: targetPivot)
         return mutableData.dropLast(caloriesData.count - 3).reduce(0, +)
     }
 
     @discardableResult
-    func findKSort(nums: inout [Int], start: Int, end: Int, k: Int) -> Int {
+    static func findKSort(nums: inout [Int], start: Int, end: Int, k: Int) -> Int {
         var start_ = start
         var end_ = end
         while (start < end) {
@@ -59,7 +59,7 @@ extension Day1 {
         return nums[k - 1]
     }
 
-    func qsort(_ nums: inout [Int], from: Int, to: Int) -> Int {
+    static func qsort(_ nums: inout [Int], from: Int, to: Int) -> Int {
         let pivot = nums[to]
         var cur = from
         var i = from
