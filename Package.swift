@@ -9,7 +9,7 @@ let package = Package(
     name: "AdventOfCode",
     platforms: [
         .iOS(.v16),
-        .macOS(.v12)
+        .macOS(.v13)
     ],
     dependencies: [
         // Some recommended packages here, you might like to try them!
